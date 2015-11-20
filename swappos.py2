@@ -1,0 +1,30 @@
+#!/usr/bin/python
+from sys import argv
+#f = argv[1]
+f = 'tests/112'
+data = open(f,'r').read().splitlines()
+
+def procSwaps(sArray):
+# i hope order is preserved from input, should be
+  swaps = sArray.split(',')
+  swaps = [n.strip().split('-') for n in swaps]
+  s2 = []
+  for q,y in swaps:
+    s2.append((int(q),int(y)))
+  return s2
+
+def procNums(nArray):
+  nums = [ int(n.strip()) for n in nArray.split(' ') if n!='' ]
+  return nums
+
+for line in data:
+  if not line:
+    continue
+  nums,swaps = line.split(':')
+  swaps = procSwaps(swaps)
+  nums = procNums(nums)
+#  print swaps,nums
+  for x,y in swaps:
+    nums[x],nums[y] = nums[y],nums[x]
+#  print 'new nums!', nums
+  print ' '.join(map(str,nums))
