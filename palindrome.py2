@@ -1,0 +1,58 @@
+#!/usr/bin/python
+from sys import argv
+data = open(argv[1],'r').read().splitlines()
+
+def sumrev(x):
+  return str(int(x) + int(x[::-1]) )
+
+def palin(x):
+  if ( x == x[::-1] ):
+#    print 'compared',x,'and',x[::-1],'and they are palindromes'
+    return True
+  else:
+    return False
+
+for line in data:
+  if not line:
+    continue
+  if palin(line):
+    print 0,line
+    continue
+  q=0
+  while not palin(line):
+    q = q+1
+#    print 'q',q,'line',line,'sumrev',sumrev(line)
+    line = sumrev(line)
+  print q,line
+
+#fuck
+  continue
+  canary = 0
+  if palin(line):
+    print canary,line
+  else:
+    while not palin(sumrev(line)):
+      canary = canary + 1
+      line = sumrev(line)
+    print canary,line
+  continue
+  canary = 0
+  result = 0
+  print 'working on number ', line
+  if palin(line):
+    print 'line already palin'
+    result = line
+    continue
+  if palin(sumrev(line)):
+    print 'only one iter'
+    canary = 1
+    result = sumrev(line)
+  while not palin(sumrev(line)):
+    canary = canary +1
+    print 'canary++'
+    line=sumrev(line)
+    result = line
+  print 'iters', canary
+  print 'result', result
+#  print 'palin', palin(sumrev(line))
+  print '================'

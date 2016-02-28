@@ -1,0 +1,19 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/104'
+data = open(f,'r').read().splitlines()
+
+d =  {'zero':'0','one':'1','two':'2','three':'3',
+        'four':'4','five':'5','six':'6','seven':'7',
+        'eight':'8','nine':'9'}
+
+for line in data:
+    if not line:
+        continue
+    outl=[]
+    q=line.split(';')
+    [outl.append(d[w]) for w in q]
+    print ''.join(outl)

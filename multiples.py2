@@ -1,0 +1,30 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/18'
+data = open(f,'r').read().splitlines()
+
+xs=[]; ns=[]; l=0
+
+for line in data:
+    if not line:
+        continue
+    x,n = [int(q) for q in line.split(',') ]
+    if n > x:
+        print n
+    else:
+        #print 'n<=x'
+        #print 'incrementing n past x'
+        while n < x:
+            n = n*2
+        #print 'n found: ' + str(n)
+        print n
+    #print 'line',line
+    #print 'FINAL MUTIPLE N', n
+    #xs.append(x)
+    #ns.append(n)
+    #l = l+1
+
+#print max(ns)

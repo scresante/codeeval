@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+
+for x in xrange(1,13):
+  for y in xrange(1,13):
+    #print str(y*x).rjust(4),
+    print '{:>3}'.format(str(y*x)),
+  print
+

@@ -1,0 +1,22 @@
+#!/usr/bin/python
+from sys import argv
+from math import factorial
+try:
+    f = argv[1]
+except:
+    f = 'tests/64'
+data = open(f,'r').read().splitlines()
+
+
+steps = [int(q) for q in data]
+#for line in data:
+#    if not line:
+#        continue
+#    line = int(line)
+
+steps.sort(reverse=True)
+
+
+
+
+print steps

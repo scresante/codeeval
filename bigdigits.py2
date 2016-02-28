@@ -1,0 +1,90 @@
+#!/usr/bin/python2
+from sys import argv
+#import timeit
+import itertools
+data = open(argv[1],'r').read().splitlines()
+
+TR = {\
+0:'''-**--
+*--*-
+*--*-
+*--*-
+-**--''',
+1:'''--*--
+-**--
+--*--
+--*--
+-***-''',
+2:'''***--
+---*-
+-**--
+*----
+****-''',
+3:'''***--
+---*-
+-**--
+---*-
+***--''',
+4:'''-*---
+*--*-
+****-
+---*-
+---*-''',
+5:'''****-
+*----
+***--
+---*-
+***--''',
+6:'''-**--
+*----
+***--
+*--*-
+-**--''',
+7:'''****-
+---*-
+--*--
+-*---
+-*---''',
+8:'''-**--
+*--*-
+-**--
+*--*-
+-**--''',
+9:'''-**--
+*--*-
+-***-
+---*-
+-**--'''
+}
+
+
+
+results=[]
+
+def is_int(s):
+  try:
+    int(s)
+    return True
+  except ValueError:
+    return False
+
+def main(line):
+#  print type(line)
+#  print line
+  outlines = ['', '', '', '' ,'']
+  for cmapped in [TR[n].split() for n in [int(a) for a in list(line) if is_int(a)] ]:
+    for q in range(5):
+      outlines[q] = outlines[q] + cmapped[q]
+    #cmapped.append('-----')
+    #print cmapped
+  linediv = '-' * len(outlines[0])
+  outlines.append(linediv)
+  print '\n'.join(outlines)
+
+for line in data:
+  if not line:
+    continue
+  main(line)
+
+for l in results:
+  print ','.join(l)

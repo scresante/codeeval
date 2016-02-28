@@ -1,0 +1,43 @@
+#!/usr/bin/python
+<<<<<<< HEAD
+from itertools import permutations
+from sys import argv
+=======
+from sys import argv
+from itertools import combinations_with_replacement as cwr
+>>>>>>> 0db76c91ed276641f63ac60adc50dcda23c05ed8
+try:
+    f = argv[1]
+except:
+    f = 'tests/38'
+data = open(f,'r').read().splitlines()
+
+<<<<<<< HEAD
+def output(s):
+    s.sort()
+    print ','.join([''.join(z) for z in s])
+=======
+>>>>>>> 0db76c91ed276641f63ac60adc50dcda23c05ed8
+
+for line in data:
+    if not line:
+        continue
+<<<<<<< HEAD
+    n,line = line.split(',')
+    n = int(n)
+    q = [x for x in [z for z in permutations(list(line),n)]]
+#nope
+
+    final = q
+    output(final)
+=======
+    n,s = line.split(',')
+    n = int(n)
+    if n is 0:
+      print ''
+      continue
+    commmmboooBreaker = list(set( [''.join(q) for q in cwr(s,n)] ))
+    commmmboooBreaker.sort()
+    print ','.join(commmmboooBreaker)
+
+>>>>>>> 0db76c91ed276641f63ac60adc50dcda23c05ed8

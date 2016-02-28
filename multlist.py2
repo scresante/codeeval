@@ -1,0 +1,13 @@
+#!/usr/bin/python
+from sys import argv
+try:
+  f = argv[1]
+except:
+  f = 'inputs/113'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+  if not line:
+    continue
+  S1,S2 = line.split('|')
+  print ' '.join([str(n) for n in [ (int(x)*int(y)) for (x,y) in zip(S1.strip().split(' '), S2.strip().split(' ') ) ] ] )

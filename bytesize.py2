@@ -1,0 +1,19 @@
+#!/usr/bin/python
+from sys import argv
+from os import path
+try:
+  f = argv[1]
+except:
+  f = 'inputs/26'
+
+#counter=0
+#
+#with open(f, 'rb') as fr:
+#    while 1:
+#        null = fr.read(1)
+#        if not null:
+#            break
+#        counter = counter + 1
+#print counter
+
+print path.getsize(f)

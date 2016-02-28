@@ -1,0 +1,13 @@
+#!/usr/bin/python
+from sys import argv
+from codeeval import codeeval
+class nonrepeat(codeeval):
+  def __init__(self):
+    self.data=''
+    self.getdata('inputs/12')
+  def find(self):
+    pass
+
+if __name__=="__main__":
+  x = nonrepeat()
+  print x.data

@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import json
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/102'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    loads=json.loads(line)
+    items = loads['menu']['items']
+    total = 0
+    for item in items:
+        if item:
+            if item.has_key('label'):
+                total += item['id']
+    print total
+

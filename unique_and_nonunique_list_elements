@@ -1,0 +1,1 @@
+set comprehensions can use list functions as conditionals - to return all elements of a set which occur once - that is all unique elements - use [q for q in l if l.count(q)==1]

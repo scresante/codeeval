@@ -1,0 +1,19 @@
+#!/usr/bin/python
+from codeeval import codeeval
+
+class nonrepeat(codeeval):
+  def __init__(self):
+    self.data=''
+    self.getdata()
+    
+  def find(self):
+    for sl in self.data:
+      sl = list(sl)
+      [sl.remove(r) for r in [x for x in sl if sl.count(x) > 1]]
+      print sl[0]
+    pass
+
+if __name__=="__main__":
+  x = nonrepeat()
+#  print x.data
+  x.find()

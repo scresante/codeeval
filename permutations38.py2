@@ -1,0 +1,26 @@
+#!/usr/bin/python
+from sys import argv
+from itertools import permutations
+from itertools import combinations
+try:
+    f = argv[1]
+except:
+    f = 'inputs/38'
+data = open(f,'r').read().splitlines()
+
+def iterstr(astr):
+    for x in astr:
+        yield astr
+
+
+for line in data:
+    if not line:
+        continue
+    n,l = line.split(',')
+    print n,l
+#    for x in combinations(iterstr(list(l)),int(n)):
+#        print 'combos on l', l
+#        print x
+#    q=[x for x in [z for z in permutations(list(l))]]
+#    q.sort()
+#    print ','.join([''.join(z) for z in q])

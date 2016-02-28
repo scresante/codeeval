@@ -1,0 +1,9 @@
+Print to stdout, each line
+with its words reversed, one per line. 
+Empty lines in the input
+ should be ignored. 
+
+Ensure that there are no trailing empty spaces on 
+each line you print. E.g.
+Hello World
+Hello CodeEval

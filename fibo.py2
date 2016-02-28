@@ -1,0 +1,30 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/22'
+data = open(f,'r').read().splitlines()
+
+def fibo(n):
+    f=[]
+    x = 0
+    y = 1
+    for i in range(n+1):
+        f.append(x)
+        t = y
+        y = x + y
+        x = t
+    return f
+
+ns=[]
+
+[ns.append(int(line)) for line in data if line]
+
+ns.sort(reverse=True)
+fibs=fibo(ns[0])
+
+for line in data:
+  if not data:
+    continue
+  print fibs[int(line)]

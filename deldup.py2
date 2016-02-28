@@ -1,0 +1,26 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/29'
+data = open(f,'r').read().splitlines()
+
+def uniqifyList(seq, idfun=None):
+  if idfun is None:
+    def idfun(x):
+      return x
+  seen = {}
+  result = []
+  for item in seq:
+    marker = idfun(item)
+    if marker in seen:
+      continue
+    seen[marker] = 1
+    result.append(item)
+  return result
+
+for line in data:
+    if not line:
+        continue
+    print ','.join(uniqifyList(line.split(',')))

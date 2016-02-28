@@ -1,0 +1,27 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/172'
+data = open(f,'r').read().splitlines()
+
+
+def digits_of(n):
+    return [int(d) for d in str(n)]
+for line in data:
+    if not line:
+        continue
+# flip input
+    s = line.replace(' ','')[::-1]
+#summ odd digits
+    o = sum([int(q) for q in s[::2]])
+# step through even digits
+    for w in [int(q) for q in s[1::2]]:
+# for each component, multiple by 2, convert to string and sum
+        o += sum(digits_of(w*2))
+#    print o
+    if o%10 == 0:
+        print 1
+    else:
+        print 0

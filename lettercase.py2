@@ -1,0 +1,24 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/147'
+data = open(f,'r').read().splitlines()
+
+def outperc(nlow,nup):
+  tot = nlow + nup
+  fmt="{:.2f}"
+  return fmt.format(nlow*100/tot),fmt.format(nup*100/tot)
+
+for line in data:
+    if not line:
+        continue
+    low, up = 0.0, 0.0
+    for x in list(line):
+      if x.islower():
+        low = low + 1
+      else:
+        up = up + 1
+    #print line
+    print 'lowercase:', outperc(low,up)[0], 'uppercase:', outperc(low,up)[1]

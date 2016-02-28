@@ -1,0 +1,24 @@
+#!/usr/bin/python
+from sys import argv
+try:
+  f = argv[1]
+except:
+  f = 'inputs/1'
+data = open(f,'r').read().splitlines()
+
+def fizzbuzz(x,y,n):
+    for number in range(1,n+1):
+        if ((number % x) != 0  and (number % y) !=0):
+            yield str(number)
+        elif ((number % x) == 0 and (number % y) != 0):
+            yield 'F'
+        elif ((number % x) != 0 and (number % y) == 0):
+            yield 'B'
+        else:
+            yield 'FB'
+
+for line in data:
+  if not line:
+    continue
+  x,y,n = [int(q) for q in line.split(' ')]
+  print  ' '.join([x for x in fizzbuzz(x,y,n)])

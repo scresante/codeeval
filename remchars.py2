@@ -1,0 +1,11 @@
+#!/usr/bin/python
+from sys import argv
+from re import sub
+data = open(argv[1],'r').read().splitlines()
+
+for line in data:
+  if not line:
+    continue
+  main, repl = line.split(',')
+  re = '[' + repl.strip(' ') + ']'
+  print sub(re, '', main)

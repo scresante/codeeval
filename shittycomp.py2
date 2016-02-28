@@ -1,0 +1,29 @@
+#!/usr/bin/python
+#
+from sys import argv
+#data = open(argv[1],'r')
+#for line in data:
+#  q = [(x,y) for x in line.split(';')[0] for y in line.split(';')[1] if ( x==y and x != ',' and y != ',')]
+#  if zip(*q): 
+#    print ','.join(list(zip(*q)[0]))
+#  else: print
+#data.close()
+
+data = open(argv[1],'r').read().splitlines()
+for line in data:
+  if not line: continue
+  q, w = line.split(';')
+  stuff = [(x,y) for x in q.split(',') for y in w.split(',') if x==y ]
+  if stuff:
+    print ','.join(map(lambda x: x[0], stuff))
+
+#print '================'
+#data = open(argv[1],'r').read().splitlines()
+#for line in data:
+#  l0 = line.split(';')[0]
+#  l1 = line.split(';')[1]
+#  res=[]
+#  for q in l0:
+#    for w in l1:
+#      if q==w and q!=',': res.append(q)
+#  print ','.join(res)

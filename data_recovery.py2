@@ -1,0 +1,41 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/140'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    line, index = line.split(';')
+    line = line.split(' ')
+    lineout = range(len(line))
+    index = [int(q) for q in index.split()]
+#    print 'the index given was', index, 'however decrementing by 1 each'
+#    index = [ q-1 for q in index]
+#    print index
+
+# this gets the index of the letter in the correct place
+    ii=[(i) for i,x in enumerate(line)]
+    newi = index[:]
+    newi.sort()
+    correct = (set(ii)-set(newi)).pop()-1
+    missing = line[correct]
+    line.remove(missing)
+    print 'the hidden index number is correct;', correct,missing
+#    print len(index), index
+#    print len(line), line
+
+# looks like just needs some conditional code to deal with correct
+# the fucking from 1 indexing is bloody retarded
+
+    print zip(line,index)
+    for x,y in zip(line,index):
+      lineout[y-1] = x
+    print lineout
+    r=[(i) for i,x in enumerate(lineout) if type(x) == int][0]
+    lineout[int(r)]=missing
+    print ' '.join(lineout)
+    print '---------'

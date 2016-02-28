@@ -1,0 +1,12 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/24'
+data = open(f,'r').read().splitlines()
+
+print sum( [ int(x) for x in data ] )
+for line in data:
+    if not line:
+        continue

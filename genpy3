@@ -1,0 +1,12 @@
+#!/bin/bash
+n=$1
+t=$2
+if [[ -z $2 ]] 
+then
+    echo 'incorrect usage'
+    exit
+fi
+sed "s/tests/tests\/$2/" template.py3 > $n.py3
+chmod u+x $n.py3
+ln -sv $n.py3 $n.py
+vi -o $n.py tests/$2

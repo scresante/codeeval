@@ -1,0 +1,16 @@
+#!/usr/bin/python
+from sys import argv
+from itertools import permutations
+try:
+    f = argv[1]
+except:
+    f = 'inputs/14'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    q=[x for x in [z for z in permutations(list(line))]]
+    q.sort()
+    print ','.join([''.join(z) for z in q])
+

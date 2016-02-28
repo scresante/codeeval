@@ -1,0 +1,50 @@
+#!/usr/bin/python
+from math import floor
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/146'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    line = [int(q) for q in line.split(' ')]
+    l, d, n = line[0], line[1], line[2]
+    batloc = []
+    if n > 0:
+        [ batloc.append(w) for w in line[3:] ]
+    #print l,d,n,batloc
+    fpl = 6 # first possible location
+    lpl = l-6 # last possible location
+    totbats = ( (lpl-fpl)/d ) + 1
+    if n == 0:
+        if fpl == lpl:
+            bats = 1
+        elif (lpl - fpl) < d:
+            bats = 2
+        else:
+            bats = ( (lpl-fpl) / d ) + 1
+    if n > 0:
+        #print 'n > 0'
+# LOL HAX
+        bats = totbats - n
+        if bats != 0:
+            bats = bats - 1
+    print bats
+    #pseudocode!
+    #if there are bats then
+        #find the first one
+        #skip back by d until you go past fpl
+        #go forward by d
+        #OR
+        #go to fpl and start
+        #check for a bat within d, if not, place bat
+      #special cases (does it exist?):
+        #no room for extra bats:
+        #
+
+          #two bats are at least d apart, but are not a mutiple of d apart ( Da - Db ) mod n != 0
+        #if not
+            #shortcut: floor( (lpl-fpl) / n ) - len(batloc)

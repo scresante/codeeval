@@ -1,0 +1,27 @@
+#!/usr/bin/python
+from sys import argv
+import re
+try:
+    f = argv[1]
+except:
+    f = 'tests/169'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    words = line.split(' ')
+    rawRE = words.pop(0)
+    rawRE = rawRE.replace('.' , '\.')
+    rawRE = rawRE.replace('*' , '.*')
+    rawRE = rawRE.replace('?' , '.')
+    rawRE = '^' + rawRE + '$'
+    #print('rawRE: ',rawRE)
+    #print('words: ',words)
+    pattern = re.compile(rawRE)
+    matches = [ pattern.match(q).string for q in words if pattern.match(q) ]
+    if len(matches) is 0:
+        print('-')
+    else:
+        print(' '.join(matches))
+    #print('matches: ',matches)

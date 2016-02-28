@@ -1,0 +1,26 @@
+#!/usr/bin/python
+from sys import argv
+try:
+  f = argv[1]
+except:
+  f = 'inputs/124'
+data = open(f,'r').read().splitlines()
+
+
+for line in data:
+    if not line:
+        continue
+    legs=[]
+    for leg in line.strip().split(';'):
+        if not leg:
+            continue
+        legs.append(int(leg.split(',')[1]))
+    legs.sort()
+    legs.insert(0,0)
+#    print '----'
+#    print legs
+# difference between successive values
+#    print ' '.join([str(s) for s in [x-legs[i-1] for i,x in enumerate(legs)][1:]])
+#    print 'legs[:-1]',legs[:-1],'legs[1:]',legs[1:]
+#    print zip(legs[:-1], legs[1:])
+    print ','.join(str(x) for x in [ q-w for w,q in zip(legs[:-1], legs[1:])])

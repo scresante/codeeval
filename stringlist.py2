@@ -1,0 +1,22 @@
+#!/usr/bin/python
+from sys import argv
+from itertools import combinations_with_replacement as cwr
+try:
+    f = argv[1]
+except:
+    f = 'tests/38'
+data = open(f,'r').read().splitlines()
+
+
+for line in data:
+    if not line:
+        continue
+    n,s = line.split(',')
+    n = int(n)
+    if n is 0:
+      print ''
+      continue
+    commmmboooBreaker = list(set( [''.join(q) for q in cwr(s,n)] ))
+    commmmboooBreaker.sort()
+    print ','.join(commmmboooBreaker)
+

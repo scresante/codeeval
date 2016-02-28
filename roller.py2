@@ -1,0 +1,26 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/156'
+data = open(f,'r').read().splitlines()
+
+import string
+ascii_ = list(string.ascii_letters)
+
+for line in data:
+  if not line:
+    continue
+  lineout = []
+  onUp = True
+  for x in list(line):
+    if not any(x in s for s in ascii_):
+      lineout.append(x)
+      continue
+    if onUp:
+      lineout.append(x.upper())
+    else:
+      lineout.append(x.lower())
+    onUp = not onUp
+  print ''.join(lineout)

@@ -1,0 +1,16 @@
+#!/usr/bin/python
+from sys import argv
+try:
+  f = argv[1]
+except:
+  f = 'inputs/2'
+data = open(f,'r').read().splitlines()
+
+numlines=int(data.pop(0))
+#for line in data:
+#  if not line:
+#    continue
+
+data.sort(key=lambda x: -len(x))
+for x in data[:numlines]:
+    print x

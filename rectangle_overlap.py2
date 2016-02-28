@@ -1,0 +1,64 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/70'
+data = open(f,'r').read().splitlines()
+
+
+class myRectangle:
+#    coords = []
+#    shorts = []
+    def __init__(self, points):
+        ux,uy,lx,ly = points
+        self.coords = [ (ux,ly),(ux,uy),(lx,uy),(lx,ly) ]
+        self.bounds = { 'ux': ux,'uy': uy,'lx':lx,'ly':ly }
+    def getcoords(self):
+        print self.coords
+    def xcoords(self):
+        return [(x) for x,y in self.coords]
+    def ycoords(self):
+        return [(y) for x,y in self.coords]
+    def compare(self, aRect):
+#        print 'our rect', self.bounds
+#        print 'their rekt', other
+        a = self.bounds
+        b = aRect.bounds
+#        overlap=True
+        if a['lx'] == b['lx']: #shared points
+            overlap=True
+        elif a['lx'] < b['lx']: #a is left of b
+            if a['ux'] < b['lx']:
+                overlap=False
+            else:
+                overlap=True
+        else: # b is left of a
+            if b['ux'] < a['lx']:
+                overlap=False
+            else:
+                overlap=True
+        if overlap: return overlap
+        if a['ly'] == b['ly']: #shared points
+            overlap=True
+        elif a['ly'] < b['ly']: #a is lower of b
+            if a['uy'] < b['ly']:
+                overlap=False
+            else:
+                overlap=True
+        else: # b is lower of a
+            if b['uy'] < a['ly']:
+                overlap=False
+            else:
+                overlap=True
+#        print line
+        return overlap
+
+
+
+for line in data:
+    if not line:
+        continue
+    R1 = myRectangle([int(s) for s in line.split(',')][:4])
+    R2 = myRectangle([int(s) for s in line.split(',')][4:])
+    print R1.compare(R2)

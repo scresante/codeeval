@@ -1,0 +1,16 @@
+#!/usr/bin/python
+from sys import argv
+try:
+  f = argv[1]
+except:
+  f = 'inputs/91'
+data = open(f,'r').read().splitlines()
+
+
+
+for line in data:
+  if not line:
+    continue
+  nl = [float(n) for n in line.split(' ')]
+  nl.sort()
+  print ' '.join([str('{:.3f}'.format(n)) for n in nl])

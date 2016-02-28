@@ -1,0 +1,14 @@
+#!/usr/bin/python
+from sys import argv
+try:
+    f = argv[1]
+except:
+    f = 'tests/9'
+data = open(f,'r').read().splitlines()
+
+for line in data:
+    if not line:
+        continue
+    #line = [int(q) for q in line.split(' ')][::-2]
+    print(' '.join([str(q) for q in [int(q) for q in line.split(' ')][::-2]]))
+

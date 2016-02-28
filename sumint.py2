@@ -1,0 +1,29 @@
+#!/usr/bin/python
+from sys import argv
+import itertools
+try:
+  f = argv[1]
+except:
+  f = 'tests/17'
+data = open(f,'r').read().splitlines()
+
+def generateSubs(a):
+  for start in range(len(nums)):
+    for end in range(len(nums),-1,-1):
+      if nums[start:end] != []:
+        yield nums[start:end]
+
+for line in data:
+  if not line:
+    continue
+  nums = [int(t) for t in line.split(',') ]
+  subs = generateSubs(nums)
+  s = 0
+  for x in subs:
+    if sum(x) > s:
+      s = sum(x)
+  if s == 0:
+    nums.sort()
+    print nums[-1]
+  else:
+    print s
