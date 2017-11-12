@@ -1,10 +1,10 @@
 #!/usr/bin/python
 from sys import argv
 try:
-    f = argv[1]
-except:
-    f = 'tests/70'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/70'
+DATA = open(FILE, 'r').read().splitlines()
 
 
 class myRectangle:
@@ -56,7 +56,7 @@ class myRectangle:
 
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     R1 = myRectangle([int(s) for s in line.split(',')][:4])

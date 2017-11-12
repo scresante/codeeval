@@ -1,12 +1,12 @@
 #!/usr/bin/python
-from math import sqrt
 from sys import argv
 try:
-    f = argv[1]
-except:
-    f = 'tests/98'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/98'
+DATA = open(FILE, 'r').read().splitlines()
 
+from math import sqrt
 center = (0.0, 0.0)
 radius = 0.0
 point = (0.0, 0.0)
@@ -24,7 +24,7 @@ def grok(s):
     return cent, rad, po
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     center, radius, point = grok(line)

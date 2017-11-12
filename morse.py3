@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 from sys import argv
+try:
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/116'
+DATA = open(FILE, 'r').read().splitlines()
+
+from itertools import combinations
+from math import sqrt,ceil
 morse_dict = {
     '.-': 'A',
     '-...': 'B',
@@ -40,13 +48,7 @@ morse_dict = {
     '': ' ',
     }
 
-try:
-  f = argv[1]
-except:
-  f = 'tests/116'
-data = open(f,'r').read().splitlines()
-
-for line in data:
+for line in DATA:
     if not line:
         continue
     print( ''.join([ morse_dict[q] for q in line.split(' ')]) )

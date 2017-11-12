@@ -1,13 +1,13 @@
 #!/usr/bin/python
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'inputs/2'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'inputs/2'
+DATA = open(FILE, 'r').read().splitlines()
 
 numlines=int(data.pop(0))
-#for line in data:
+#for line in DATA:
 #  if not line:
 #    continue
 

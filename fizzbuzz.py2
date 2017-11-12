@@ -1,10 +1,10 @@
 #!/usr/bin/python
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'inputs/1'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'inputs/1'
+DATA = open(FILE, 'r').read().splitlines()
 
 def fizzbuzz(x,y,n):
     for number in range(1,n+1):
@@ -17,7 +17,7 @@ def fizzbuzz(x,y,n):
         else:
             yield 'FB'
 
-for line in data:
+for line in DATA:
   if not line:
     continue
   x,y,n = [int(q) for q in line.split(' ')]

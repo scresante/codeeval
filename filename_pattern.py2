@@ -1,13 +1,14 @@
 #!/usr/bin/python
 from sys import argv
-import re
 try:
-    f = argv[1]
-except:
-    f = 'tests/169'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/169'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+import re
+
+for line in DATA:
     if not line:
         continue
     words = line.split(' ')

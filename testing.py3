@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/225'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/225'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     q,w = line.split(' | ')

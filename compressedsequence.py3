@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/128'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/128'
+DATA = open(FILE, 'r').read().splitlines()
 from itertools import groupby
-for line in data:
+for line in DATA:
     if not line:
         continue
     groups = [ list(g) for k, g in groupby(line.split(' ')) ]

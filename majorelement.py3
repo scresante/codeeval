@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/132'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/132'
+DATA = open(FILE, 'r').read().splitlines()
 from itertools import groupby
 
 def major(line):
@@ -14,7 +14,7 @@ def major(line):
             return g[0]
     return 'None'
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     line = sorted([q for q in line.split(',')])

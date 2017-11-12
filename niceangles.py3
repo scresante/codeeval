@@ -2,10 +2,10 @@
 """ Convert from decimal degrees to DMS format """
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/160'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/160'
+DATA = open(FILE, 'r').read().splitlines()
 from math import floor
 
 def toDMS(dec):
@@ -16,7 +16,7 @@ def toDMS(dec):
     S = int(S)
     return (D,M,S)
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     line = float(line)

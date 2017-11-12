@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/186'
-data = open(f,'r').read().splitlines()
-for line in data:
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/186'
+DATA = open(FILE, 'r').read().splitlines()
+for line in DATA:
     if not line:
         continue
     stride, nums = line.split(';')
@@ -17,7 +17,7 @@ for line in data:
     for g in range(groups):
         #print(nums[g:stride+g])
         gains.append(sum(nums[g:stride+g]))
-    
+
     #print(max(gains))
     if max(gains) < 0:
         print(0)

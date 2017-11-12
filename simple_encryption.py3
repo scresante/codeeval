@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/226'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/226'
+DATA = open(FILE, 'r').read().splitlines()
 
 global lookup;
 lookup = {
@@ -42,7 +42,7 @@ def decode(line):
         out += lookup[char]
     return out
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     out = ''

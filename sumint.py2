@@ -2,10 +2,10 @@
 from sys import argv
 import itertools
 try:
-  f = argv[1]
-except:
-  f = 'tests/17'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/17'
+DATA = open(FILE, 'r').read().splitlines()
 
 def generateSubs(a):
   for start in range(len(nums)):
@@ -13,7 +13,7 @@ def generateSubs(a):
       if nums[start:end] != []:
         yield nums[start:end]
 
-for line in data:
+for line in DATA:
   if not line:
     continue
   nums = [int(t) for t in line.split(',') ]

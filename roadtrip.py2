@@ -1,13 +1,13 @@
 #!/usr/bin/python
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'inputs/124'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/124'
+DATA = open(FILE, 'r').read().splitlines()
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     legs=[]

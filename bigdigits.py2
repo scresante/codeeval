@@ -1,8 +1,8 @@
 #!/usr/bin/python2
 from sys import argv
 #import timeit
+DATA = open(argv[1],'r').read().splitlines()
 import itertools
-data = open(argv[1],'r').read().splitlines()
 
 TR = {\
 0:'''-**--
@@ -81,7 +81,7 @@ def main(line):
   outlines.append(linediv)
   print '\n'.join(outlines)
 
-for line in data:
+for line in DATA:
   if not line:
     continue
   main(line)

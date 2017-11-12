@@ -3,10 +3,10 @@ from sys import argv, setrecursionlimit
 
 setrecursionlimit(100)
 try:
-  f = argv[1]
-except:
-  f = 'tests/45'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/45'
+DATA = open(FILE, 'r').read().splitlines()
 
 
 #makesum = lambda x: str(int(x) + int(x[::-1]))
@@ -17,7 +17,7 @@ def findpalin(x, count):
         return (x,str(count-1))
     else:
         return (findpalin( str(int(x) + int(x[::-1])), count))
-for line in data:
+for line in DATA:
     if not line:
         continue
     count = 0

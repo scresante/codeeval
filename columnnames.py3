@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/197'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/197'
+DATA = open(FILE, 'r').read().splitlines()
 
 from string import ascii_uppercase
 vals = list(ascii_uppercase)
@@ -70,7 +70,7 @@ def col(num):
     #return(''.join(ret))
     return ret
 
-import unittest, random,pdb 
+import unittest, random,pdb
 
 class TestCol(unittest.TestCase):
     def setUp(self):
@@ -87,7 +87,7 @@ class TestCol(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 #for x in range(676,705):
-##for line in data:
+##for line in DATA:
     ##if not line:
         ##continue
     ##line = int(line)

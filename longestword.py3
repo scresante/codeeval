@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 from sys import argv
+try:
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/111'
+DATA = open(FILE, 'r').read().splitlines()
+
 #import itertools
 #def pairwise(iterable):
     #a,b = itertools.tee(iterable)
     #next(b, None)
     #return itertools.izip(a,b)
 
-try:
-  f = argv[1]
-except:
-  f = 'tests/111'
-data = open(f,'r').read().splitlines()
-
-for line in data:
+for line in DATA:
     if not line:
         continue
     words = sorted(line.split(' '), key = lambda x: len(x), reverse=True)

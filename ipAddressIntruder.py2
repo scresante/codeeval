@@ -1,12 +1,12 @@
 #!/usr/bin/python
-import socket, re
 from sys import argv
 try:
-    f = argv[1]
-except:
-    f = 'tests/137'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/137'
+DATA = open(FILE, 'r').read().splitlines()
 
+import socket, re
 
 def is_valid(ipv4_addr):
     try:
@@ -62,7 +62,7 @@ def is_valid_ipv4(ip):
     #return pattern.match(ip) is not None
     return pattern.findall(ip)
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     print is_valid_ipv4(line)

@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/205'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/205'
+DATA = open(FILE, 'r').read().splitlines()
 import string
 import re
 els=[]
-for line in data:
+for line in DATA:
     if not line:
         continue
     line = line.lower()

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/106'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/106'
+DATA = open(FILE, 'r').read().splitlines()
 
 
 def intToRoman(num):
@@ -43,7 +43,7 @@ def intToRoman(num):
     return out
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     num = int(line)

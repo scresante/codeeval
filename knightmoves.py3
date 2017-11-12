@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/180'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/180'
+DATA = open(FILE, 'r').read().splitlines()
 
 cols = list('abcdefgh')
 
@@ -25,7 +25,7 @@ def getpos(*tups):
     if (c > 0 and r > 0) and (c < 9 and r < 9):
         return (c,r)
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     col, row = line[0], line[1]

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/82'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/82'
+DATA = open(FILE, 'r').read().splitlines()
 
 def sumofpowers(num):
     nstr = str(num)
@@ -12,7 +12,7 @@ def sumofpowers(num):
     nsum = sum( [pow(int(q),npow) for q in nstr] )
     return nsum
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     if int(line) == sumofpowers(int(line)):

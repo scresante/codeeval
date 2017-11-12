@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/40'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/40'
+DATA = open(FILE, 'r').read().splitlines()
 
 def checknum(line):
     for position,value in enumerate(line):
@@ -16,7 +16,7 @@ def checknum(line):
         return True
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     if checknum(line):

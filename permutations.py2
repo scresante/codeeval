@@ -2,12 +2,12 @@
 from sys import argv
 from itertools import permutations
 try:
-    f = argv[1]
-except:
-    f = 'inputs/14'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/14'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     q=[x for x in [z for z in permutations(list(line))]]

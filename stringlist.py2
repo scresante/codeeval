@@ -2,13 +2,13 @@
 from sys import argv
 from itertools import combinations_with_replacement as cwr
 try:
-    f = argv[1]
-except:
-    f = 'tests/38'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/38'
+DATA = open(FILE, 'r').read().splitlines()
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     n,s = line.split(',')

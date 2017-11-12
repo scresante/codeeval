@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-from collections import Counter
-from sys import argv
 import string
 try:
-  f = argv[1]
-except:
-  f = 'tests/83'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/83'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+from collections import Counter
+from sys import argv
+
+for line in DATA:
     if not line:
         continue
     beauty = 0

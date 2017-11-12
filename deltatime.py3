@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/166'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/166'
+DATA = open(FILE, 'r').read().splitlines()
 
 import datetime
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     t1, t2 = line.split(' ')

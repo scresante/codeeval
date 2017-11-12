@@ -2,14 +2,14 @@
 from sys import argv
 from math import factorial
 try:
-    f = argv[1]
-except:
-    f = 'tests/64'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/64'
+DATA = open(FILE, 'r').read().splitlines()
 
 
 steps = [int(q) for q in data]
-#for line in data:
+#for line in DATA:
 #    if not line:
 #        continue
 #    line = int(line)

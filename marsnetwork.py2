@@ -1,12 +1,13 @@
-from itertools import combinations
+#!/usr/bin/python2
 from sys import argv
-from math import sqrt,ceil
 try:
-    f = argv[1]
-except:
-    f = 'tests/164'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/164'
+DATA = open(FILE, 'r').read().splitlines()
 
+from itertools import combinations
+from math import sqrt,ceil
 def getweight(vj, vk): #vj and vk are two coords each x,y
   return sqrt( (abs(vj[0]-vk[0]))**2 + (abs(vj[1]-vk[1]))**2 )
 
@@ -47,7 +48,7 @@ def kruskal(graph):
             minimum_spanning_tree.add(edge)
     return minimum_spanning_tree
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     nodes=dict()

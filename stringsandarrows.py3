@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/203'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/203'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+for line in DATA:
     if not line:
         continue
-    count = 0 
+    count = 0
     stride = 5
     groups = len(line) - stride + 1
     for g in range(groups):

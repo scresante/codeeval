@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/46'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/46'
+DATA = open(FILE, 'r').read().splitlines()
 
-def primes(n): 
+def primes(n):
   if n==2: return [2]
   elif n<2: return []
   s=list(range(3,n+1,2))
@@ -29,7 +29,7 @@ def primes(n):
 top = max([int(q) for q in data])
 pList = primes(top)
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     upper = int(line)

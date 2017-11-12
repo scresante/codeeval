@@ -1,18 +1,18 @@
 #!/usr/bin/python
 from sys import argv
-from math import sqrt
 try:
-    f = argv[1]
-except:
-    f = 'tests/101'
-data = open(f,'r').read().splitlines()
+    FILE = argv[1]
+except NameError:
+    FILE = 'tests/101'
+DATA = open(FILE, 'r').read().splitlines()
+from math import sqrt
 points=[]
 
 # get distance between two tuples a b with two coords each
 def dist(a,b):
     return sqrt( pow(abs(b[0]-a[0]),2) + pow(abs(b[1]-a[1]),2) )
 
-for line in data:
+for line in DATA:
     if not line:
         continue
     points = eval(line)

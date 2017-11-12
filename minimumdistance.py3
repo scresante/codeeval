@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/189'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/189'
+DATA = open(FILE, 'r').read().splitlines()
 
 def median(lst):
     lst = sorted(lst)
@@ -16,10 +16,10 @@ def median(lst):
             return float(sum(lst[ int((len(lst)/2)-1):int((len(lst)/2)+1)]))/2.0
 
 
-for line in data:
+for line in DATA:
     if not line:
         continue
-    addresses = [int(q) for q in line.split(' ')][1::] 
+    addresses = [int(q) for q in line.split(' ')][1::]
     optimal = sum(addresses)/len(addresses)
     #distance = [abs(d - optimal) for d in addresses]
     #print ("addresses: " + str(addresses))

@@ -1,11 +1,11 @@
 #!/usr/bin/python
 from sys import argv
-from os import path
 try:
-  f = argv[1]
+  FILE = argv[1]
 except:
-  f = 'inputs/26'
+  FILE = 'inputs/26'
 
+from os import path
 #counter=0
 #
 #with open(f, 'rb') as fr:

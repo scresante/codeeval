@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests/136'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/136'
+DATA = open(FILE, 'r').read().splitlines()
 
 count = 0
-for line in data:
+for line in DATA:
     if not line:
         continue
     if count == 0:

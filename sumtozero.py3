@@ -2,12 +2,12 @@
 from sys import argv
 from itertools import combinations
 try:
-  f = argv[1]
-except:
-  f = 'tests/81'
-data = open(f,'r').read().splitlines()
+  FILE = argv[1]
+except NameError:
+  FILE = 'tests/81'
+DATA = open(FILE, 'r').read().splitlines()
 
-for line in data:
+for line in DATA:
   if not line:
     continue
   line = [int(q) for q in line.split(',')]
