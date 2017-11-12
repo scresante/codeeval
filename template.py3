@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 from sys import argv
 try:
-  f = argv[1]
-except:
-  f = 'tests'
-data = open(f,'r').read().splitlines()
+    TEST = argv[1]
+except NameError:
+    TEST = 'tests'
+DATA = open(TEST, 'r').read().splitlines()
 
-for line in data:
+for line in DATA:
     if not line:
         continue
