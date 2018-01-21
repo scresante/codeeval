@@ -36,20 +36,6 @@ def untruthify(dotLights):
         blah.append([q for q in map(lambda x: '0' if x else '.' , l) ])
     return blah
 
-# neighbor snippet found online, uses one-dimension?
-#def getIndexOfNeighoringTiles(i):
-    #neighbors = []
-    #if (i % M != 0):
-        #neighbors.append(i-1)
-    #if (i % M != (M-1)):
-        #neighbors.append(i+1)
-    #if (i / M != 0):
-        #neighbors.append(i-M)
-    #if (i / M != (M-1)):
-        #neighbors.append(i+M)
-    #return neighbors
-
-
 def neighbors(nMax,mMax,pos):
     nCur,mCur = pos
 # at origin, return down and right
